@@ -1,0 +1,14 @@
+<template>
+    <h2>Video mix</h2>
+
+    <form submit.delegate="formsubmited($event)">
+        namn:<br>
+        <input type="text" name="Namn" ref="namnvalue">
+        <br>
+        <div repeat.for="rating of ratings">
+            <input type="radio" name="group1" model.bind="rating" id="radioInput_${rating.id}" checked.bind="selectedRating"/>
+            <label for="radioInput_${rating.id}">${rating.name}</label>
+        </div>
+        <input type="submit" value="skicka">
+    </form>
+</template>
