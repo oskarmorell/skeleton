@@ -1,14 +1,32 @@
 <template>
-    <h2>Video mix</h2>
-
-    <form submit.delegate="formsubmited($event)">
-        namn:<br>
+    <h2>Film Reviews</h2>
+    <form>
+        Filmtitel:<br>
         <input type="text" name="Namn" ref="namnvalue">
         <br>
-        <div repeat.for="rating of ratings">
-            <input type="radio" name="group1" model.bind="rating" id="radioInput_${rating.id}" checked.bind="selectedRating"/>
-            <label for="radioInput_${rating.id}">${rating.name}</label>
-        </div>
-        <input type="submit" value="skicka">
+        <label>
+        <h4>Ratings</h4>
+        <select value.bind="selectedRatingId" ref="betygvalue">
+            <option model.bind="null">Choose Rating...</label>
+                <option repeat.for="rating of ratings" model.bind="rating.name">
+                    ${rating.name}
+                </option>
+            </option>
+        </select>
+        </label>
+        <label>
+        <h4>Genres</h4>
+        <select multiple value.bind="selectedGenres">
+            <option model.bind="null">Choose Genre...</label>
+                <option repeat.for="genre of genres" value.bind="genre">
+                    ${genre}
+                </option>
+            </option>
+        </select>
+        </label>
+        Selected genre IDs: ${selectedGenreId}
+        <br>
+        <input type="submit" value="Skicka">
+        <button click.trigger="openModal()">Open Modal</button>
     </form>
 </template>
