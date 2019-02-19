@@ -7,8 +7,6 @@ export class Prompt {
    constructor(controller) {
       this.controller = controller;
       this.answer = null;
-
-      controller.settings.centerHorizontalOnly = true;
    }
    activate(message) {
       this.message = message;
